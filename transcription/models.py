@@ -10,8 +10,6 @@ class File(models.Model):
     summary = models.TextField(**NULLABLE)
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='associated_files')
-    language = models.CharField(max_length=50, default='ru', verbose_name='язык транскрибации')
-    model_complexity = models.CharField(max_length=20, default='base', verbose_name='сложность модели')
 
     def __str__(self):
         return f"{self.file}"

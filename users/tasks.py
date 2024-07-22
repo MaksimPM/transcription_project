@@ -2,7 +2,7 @@ import random
 from celery import shared_task
 from django.utils import timezone
 from users.models import User
-from config.mailgun import send_email
+from config.mailgun import send_email_from_user
 
 
 @shared_task
@@ -18,7 +18,7 @@ def send_confirmation_email(user_id):
     message = f'Ваш код для подтверждения почты:\n {confirmation_code}'
     to_email = user.email
 
-    response = send_email(to_email, subject, message)
+    response = send_email_from_user(to_email, subject, message)
     if response.status_code != 200:
         print(f"Error sending confirmation email: {response.text}")
 
@@ -32,7 +32,7 @@ def send_password_reset_email(user_id):
     message = f'Перейдите по ссылке для сброса пароля: http://localhost:8000/users/recovery/{user.password}/'
     to_email = user.email
 
-    response = send_email(to_email, subject, message)
+    response = send_email_from_user(to_email, subject, message)
     if response.status_code != 200:
         print(f"Error sending password reset email: {response.text}")
     
