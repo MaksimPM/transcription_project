@@ -18,7 +18,8 @@ class FileViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         media = serializer.save(user=self.request.user)
-        process_file.delay(media.id, self.request.user.email)
+        language_code = self.request.data.get('language_code', 'ru')
+        process_file.delay(media.id, self.request.user.email, language_code)
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)

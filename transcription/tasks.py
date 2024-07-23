@@ -13,7 +13,7 @@ openai.api_key = settings.OPENAI_API_KEY
 
 
 @shared_task
-def process_file(file_id, user_email):
+def process_file(file_id, user_email, language_code):
     transcriber = aai.Transcriber()
 
     file_instance = File.objects.get(id=file_id)
@@ -43,7 +43,7 @@ def process_file(file_id, user_email):
 
     config = aai.TranscriptionConfig(
         speaker_labels=True,
-        language_code="ru"
+        language_code=language_code
     )
 
     try:
