@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "b8973532-362d-4b37-aa59-006522801866",
+		"name": "Transcription_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30959595"
+	},
+	"item": [
+		{
+			"name": "file/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIwOTQ4MDgyLCJpYXQiOjE3MjA5NDcxODIsImp0aSI6ImM4NjE3NTVhOTcxMzRkMzJiYzIzNTE5ZDYzOTcxMWRiIiwidXNlcl9pZCI6Nn0.HWevOQ-2NHGK_x0F3z4NNLi1ZM6EaPN1pZQRSULkBhw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/maksim/Downloads/IMG_8744 (video-converter.com).mp4"
+						},
+						{
+							"key": "media_type",
+							"value": "video",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000//transcription/file/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"",
+						"transcription",
+						"file",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign-up/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Maksim\",\n    \"email\": \"leovikuloff@yandex.ru\",\n    \"password\": \"Maksim1510\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/users/sign-up/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"sign-up",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign-in/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"leovikuloff@yandex.ru\",\n  \"password\": \"Mavel1510\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/users/sign-in/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"sign-in",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recovery_password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIxNjU1MzM3LCJpYXQiOjE3MjE2NTE3MzcsImp0aSI6IjBjYTVjN2ZjYmQ2OTRhODhhYTIxNDgwYTljN2Q1MTBmIiwidXNlcl9pZCI6M30.kON-P17d3bK53Il15g4Nl30fkELDrgP0giwgg7TZ2Kc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"mavel.production23@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/users/recovery/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"recovery",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_new_password",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIxNjU1MzM3LCJpYXQiOjE3MjE2NTE3MzcsImp0aSI6IjBjYTVjN2ZjYmQ2OTRhODhhYTIxNDgwYTljN2Q1MTBmIiwidXNlcl9pZCI6M30.kON-P17d3bK53Il15g4Nl30fkELDrgP0giwgg7TZ2Kc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\": \"Mavel1510\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/recovery/pbkdf2_sha256$390000$4XfNxjJKYM3NXj7OcIA49B$SpMRoznzI5v1Df7lEW5z08pnMXwsbuDl0sTi4g71vwY=/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"recovery",
+						"pbkdf2_sha256$390000$4XfNxjJKYM3NXj7OcIA49B$SpMRoznzI5v1Df7lEW5z08pnMXwsbuDl0sTi4g71vwY=",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirm_email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"confirmation_code\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/confirm_email/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"confirm_email",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
