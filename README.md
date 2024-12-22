@@ -1,4 +1,4 @@
-<h1 align="center">Speech to text</a> 
+<h1 align="center">Speech to text</h1> 
         
     Сервис для транскрибации и спикеризации медиафайлов
    
@@ -8,7 +8,10 @@
 ```shell
 python -m venv venv
 ```
-
+• Запустить виртуальное окружение командой:
+```shell
+source venv/bin/activate
+```
 • Создать в корне проекта файл ```.env``` и заполнить данные по образцу из файла ```.env.sample```
 
 • Установить все необходимые зависимости, указанные в файле ```requirements.txt```:
