@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ```
 • Выполнить создание и применение миграций командами:
 ```shell
-python3 manage.py makemigration
+python3 manage.py makemigrations
 ```
 ```shell
 python3 manage.py migrate
